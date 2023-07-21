@@ -1,5 +1,5 @@
 // Single Sources Shortest Path Problem :)
-// No Doubt BFS is the best approach but when handling the case of weighted edges 
+// No Doubt BFS is the best approach but when handling the case of unweighted edges 
 // It fails to accomplish the approripriate solution.
 // Dijkstra's_Algorithm is not as Efficient as BFS but Correct :)
 /*
