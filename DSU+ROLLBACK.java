@@ -1,3 +1,4 @@
+import java.util.*;
 class DSU{
     Map<Integer, Integer> size;
     Map<Integer, Integer> rank;
@@ -11,8 +12,8 @@ class DSU{
         history =  new Stack<>();
 
     }
-    public int findUParent(int node){
-        if(!parent.containsKey(node)){
+    public int findUParent(int x){
+        if(!parent.containsKey(x)){
             parent.put(x, x);
             rank.put(x, 0);
             size.put(x, 1);
@@ -67,41 +68,12 @@ class DSU{
         if(history.isEmpty())
             return false;
 
-        Integer[] lastOpeartion = history.pop();
+        Integer[] lastOperation = history.pop();
         int element = lastOperation[0];
         int previousSize  = lastOperation[1];
         size.put(element, previousSize);
         parent.put(element, element);
 
         return true;
-    }
-}
-// Sample Demonstration of Roolback part only.
-public class Main {
-    public static void main(String[] args) {
-        DSU dsu = new DSU();
-
-        dsu.unionBySize(1, 2);
-        dsu.unionBySize(3, 4);
-        dsu.unionBySize(5, 6);
-
-        System.out.println("Before rollback:");
-        System.out.println(dsu.find(1)); // Output: 2
-        System.out.println(dsu.find(3)); // Output: 4
-        System.out.println(dsu.find(5)); // Output: 6
-
-        dsu.unionBySize(2, 4); // Making a union
-
-        System.out.println("After union:");
-        System.out.println(dsu.find(1)); // Output: 4 (merged set)
-        System.out.println(dsu.find(3)); // Output: 4
-        System.out.println(dsu.find(5)); // Output: 6
-
-        dsu.rollback(); // Rolling back the last union
-
-        System.out.println("After rollback:");
-        System.out.println(dsu.find(1)); // Output: 2 (rolled back)
-        System.out.println(dsu.find(3)); // Output: 4
-        System.out.println(dsu.find(5)); // Output: 6
     }
 }
