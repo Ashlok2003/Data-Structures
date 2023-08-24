@@ -1,6 +1,6 @@
 /*
 =======================================================================================================================================================
-                                            Algorithm Intutution & Implementation
+                                   Tarjan's Algorithm Intutution & Implementation
 =======================================================================================================================================================
 The algorithm is based on the idea that a bridge is an edge that, if removed, will disconnect the graph into two or more disjoint components.
 
